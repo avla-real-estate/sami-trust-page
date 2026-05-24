@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avla × Zafido · Instagram Reklamı Konseptleri</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0F2647;
+    --ink-2:#172f54;
+    --ink-deep:#0a1b34;
+    --plum-deep:#1f1c40;
+    --plum-mid:#2c2654;
+    --gold:#C9B68A;
+    --gold-bright:#dec79c;
+    --gold-deep:#a8946a;
+    --orange:#F08025;
+    --orange-deep:#d96d18;
+    --cream:#FAF8F3;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  html,body{margin:0;padding:0;background:#1a1f2e;font-family:var(--sans);color:#fff}
+  *{box-sizing:border-box}
+
+  /* Ad frame shared */
+  .ad{
+    width:1080px;height:1080px;
+    position:relative;overflow:hidden;
+    background:var(--plum-deep);color:#fff;
+    font-family:var(--sans);
+  }
+  .ad .hero-img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:75% 62%;
+    z-index:1;
+  }
+  .ad .scrim{position:absolute;inset:0;z-index:2;pointer-events:none}
+
+  /* Logo lockup row (common) */
+  .lockup{
+    display:flex;align-items:flex-end;justify-content:center;
+    gap:24px;
+  }
+  .lockup .zaf{height:30px;width:auto;display:block}
+  .lockup .amp{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:42px;color:var(--orange);line-height:.85;
+  }
+  .lockup .avla{height:38px;width:auto;display:block}
+
+  /* Footer bar shared */
+  .footer-bar{
+    position:absolute;left:0;right:0;bottom:0;z-index:5;
+    padding:30px 56px 36px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    background:linear-gradient(180deg, rgba(32,28,62,0) 0%, rgba(32,28,62,.55) 30%, rgba(32,28,62,.95) 100%);
+  }
+
+  /* ============================================
+     AD 1 — VIP DAVET (full bleed editorial)
+     ============================================ */
+  .ad-vip .scrim{
+    background:
+      linear-gradient(180deg, rgba(32,28,62,.95) 0%, rgba(32,28,62,.78) 18%, rgba(32,28,62,.18) 42%, rgba(32,28,62,.0) 58%, rgba(32,28,62,.30) 82%, rgba(32,28,62,.95) 100%);
+  }
+  .ad-vip .corners{position:absolute;inset:36px;z-index:4;pointer-events:none}
+  .ad-vip .corner{position:absolute;width:32px;height:32px;border:1.5px solid var(--gold)}
+  .ad-vip .corner.tl{top:0;left:0;border-right:0;border-bottom:0}
+  .ad-vip .corner.tr{top:0;right:0;border-left:0;border-bottom:0}
+  .ad-vip .corner.bl{bottom:0;left:0;border-right:0;border-top:0}
+  .ad-vip .corner.br{bottom:0;right:0;border-left:0;border-top:0}
+
+  .ad-vip .top{
+    position:absolute;top:0;left:0;right:0;z-index:4;
+    padding:60px 70px 0;
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;
+  }
+  .ad-vip .scarcity{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:#fff;
+    padding:9px 18px;border-radius:2px;
+    font-size:11px;font-weight:700;letter-spacing:.30em;text-transform:uppercase;
+  }
+  .ad-vip .scarcity .dot{
+    width:7px;height:7px;border-radius:50%;background:#fff;
+    box-shadow:0 0 0 0 rgba(255,255,255,.7);
+    animation:pulse-vip 1.8s infinite;
+  }
+  @keyframes pulse-vip{
+    0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}
+    50%{box-shadow:0 0 0 6px rgba(255,255,255,0)}
+  }
+  .ad-vip .eye{
+    font-family:var(--serif);font-weight:400;
+    font-size:48px;letter-spacing:.01em;text-transform:none;
+    color:var(--gold);
+    text-shadow:0 2px 8px rgba(0,0,0,.55);
+    display:inline-flex;align-items:baseline;gap:14px;
+  }
+  .ad-vip .eye em{font-style:italic;color:var(--gold-bright);font-weight:500}
+  .ad-vip .eye .amp{font-style:italic;color:var(--orange);font-weight:500;font-size:56px;line-height:1}
+
+  .ad-vip .center{
+    position:absolute;left:64px;top:270px;z-index:4;
+    text-align:left;max-width:760px;
+  }
+  .ad-vip .center h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:96px;line-height:.92;letter-spacing:-.015em;
+    margin:0;color:#fff;
+    text-shadow:0 4px 24px rgba(0,0,0,.75), 0 2px 8px rgba(0,0,0,.6);
+  }
+  .ad-vip .center h1 em{
+    display:block;font-style:italic;color:var(--gold-bright);
+    font-weight:500;margin-top:4px;
+  }
+  .ad-vip .center .sub{
+    margin-top:2px;font-family:var(--serif);font-style:italic;
+    font-size:24px;color:var(--gold);font-weight:400;letter-spacing:.005em;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);line-height:1.35;white-space:nowrap;
+  }
+  .ad-vip .center .sub .warm{
+    display:inline-block;color:var(--gold-bright);font-size:33px;margin-top:2px;
+    font-style:italic;
+  }
+
+  .ad-vip .meta{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    font-family:var(--sans);font-size:19px;letter-spacing:.08em;text-transform:uppercase;
+    color:#fff;font-weight:600;
+    text-shadow:0 2px 8px rgba(0,0,0,.7);
+    white-space:nowrap;flex-wrap:nowrap;
+  }
+  .ad-vip .meta .gold{color:var(--gold-bright);font-weight:700}
+  .ad-vip .meta .sep{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+
+  /* ============================================
+     AD 2 — PLAN B (split: photo top / dark bottom)
+     ============================================ */
+  .ad-plan{display:flex;flex-direction:column;background:var(--plum-deep)}
+  .ad-plan .photo{
+    position:relative;height:540px;flex-shrink:0;overflow:hidden;
+  }
+  .ad-plan .photo img{width:100%;height:100%;object-fit:cover;object-position:75% 62%}
+  .ad-plan .photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(32,28,62,.45) 0%, rgba(32,28,62,0) 30%, rgba(32,28,62,.0) 70%, rgba(32,28,62,1) 100%);
+  }
+  .ad-plan .photo .top-eye{
+    position:absolute;top:48px;left:0;right:0;text-align:center;
+    font-size:13px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold-bright);
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+  }
+  .ad-plan .body{
+    flex:1;padding:30px 70px 0;
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+  }
+  .ad-plan .stamp{
+    font-family:var(--serif);font-style:italic;
+    font-size:22px;color:var(--orange);font-weight:500;letter-spacing:.01em;
+    margin-bottom:16px;display:inline-flex;align-items:center;gap:14px;
+  }
+  .ad-plan .stamp::before, .ad-plan .stamp::after{
+    content:"";width:46px;height:1px;background:var(--gold);
+  }
+  .ad-plan .body h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:120px;line-height:.92;letter-spacing:-.012em;margin:0;color:#fff;
+  }
+  .ad-plan .body h1 em{font-style:italic;color:var(--gold-bright);font-weight:500}
+  .ad-plan .body .ko{
+    margin-top:20px;font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:30px;color:var(--gold);line-height:1.3;max-width:22ch;
+  }
+
+  /* ============================================
+     AD 3 — PAZAR KAHVESİ (warm conversational)
+     ============================================ */
+  .ad-kahve .hero-img{object-position:75% 62%}
+  .ad-kahve .scrim{
+    background:
+      linear-gradient(180deg, rgba(32,28,62,.88) 0%, rgba(32,28,62,.62) 22%, rgba(32,28,62,.10) 48%, rgba(32,28,62,0) 62%, rgba(32,28,62,.35) 84%, rgba(32,28,62,.95) 100%);
+  }
+  .ad-kahve .top{
+    position:absolute;top:0;left:0;right:0;z-index:4;
+    padding:64px 64px 0;text-align:center;
+  }
+  .ad-kahve .top .label{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:13px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold-bright);
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+  }
+  .ad-kahve .top .label::before, .ad-kahve .top .label::after{
+    content:"";width:36px;height:1px;background:var(--gold);
+  }
+  .ad-kahve .quote-wrap{
+    position:absolute;left:0;right:0;top:160px;z-index:4;
+    padding:0 80px;text-align:center;
+  }
+  .ad-kahve .qmark{
+    font-family:var(--serif);font-style:italic;font-size:120px;
+    color:var(--orange);line-height:.4;display:block;
+    margin-bottom:12px;
+    text-shadow:0 4px 18px rgba(0,0,0,.4);
+  }
+  .ad-kahve .quote{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:72px;line-height:1.05;color:#fff;
+    text-shadow:0 4px 18px rgba(0,0,0,.75), 0 2px 6px rgba(0,0,0,.6);
+    letter-spacing:-.005em;max-width:18ch;margin:0 auto;
+  }
+  .ad-kahve .quote .br{display:block}
+  .ad-kahve .quote em{font-style:italic;color:var(--gold-bright);font-weight:500}
+  .ad-kahve .byline{
+    margin-top:28px;
+    font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold-bright);
+    text-shadow:0 2px 6px rgba(0,0,0,.5);
+  }
+
+  /* ============================================
+     AD 4 — KLASIK (editorial type-driven)
+     ============================================ */
+  .ad-klasik{display:flex;flex-direction:column;background:var(--plum-deep)}
+  .ad-klasik .photo{
+    position:relative;height:600px;flex-shrink:0;overflow:hidden;
+  }
+  .ad-klasik .photo img{width:100%;height:100%;object-fit:cover;object-position:75% 62%}
+  .ad-klasik .photo::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(32,28,62,.18) 0%, rgba(32,28,62,0) 25%, rgba(32,28,62,0) 75%, rgba(32,28,62,.9) 100%);
+  }
+  .ad-klasik .photo .ribbon{
+    position:absolute;top:48px;left:48px;z-index:2;
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:#fff;
+    padding:10px 18px;border-radius:2px;
+    font-size:11px;font-weight:700;letter-spacing:.30em;text-transform:uppercase;
+  }
+  .ad-klasik .body{
+    flex:1;padding:46px 64px 0;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .ad-klasik .eye{
+    font-size:13px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:24px;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .ad-klasik .eye::before, .ad-klasik .eye::after{
+    content:"";width:42px;height:1px;background:var(--gold);
+  }
+  .ad-klasik .body h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:96px;line-height:.94;letter-spacing:-.012em;margin:0;color:#fff;
+  }
+  .ad-klasik .body h1 .rule{
+    display:block;width:80px;height:1.5px;background:var(--gold);
+    margin:18px auto 18px;
+  }
+  .ad-klasik .body h1 .b{
+    display:block;font-style:italic;color:var(--gold-bright);font-weight:500;
+  }
+  .ad-klasik .body .ko{
+    margin-top:24px;font-family:var(--sans);font-size:15px;letter-spacing:.04em;
+    color:rgba(255,255,255,.78);line-height:1.55;max-width:42ch;
+  }
+
+  /* ============================================
+     Footer bar variants
+     ============================================ */
+  .fb-date{
+    font-family:var(--serif);font-weight:500;font-size:26px;
+    color:#fff;line-height:1.1;letter-spacing:.005em;
+  }
+  .fb-date em{font-style:italic;color:var(--gold-bright);font-weight:500;display:block;font-size:14px;margin-top:4px;font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase}
+
+  .fb-cta{
+    display:inline-flex;align-items:center;gap:21px;
+    background:var(--orange);color:#fff;
+    padding:27px 45px;border-radius:2px;
+    font-size:20px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    box-shadow:0 6px 24px rgba(240,128,37,.45);
+  }
+  .fb-cta .arrow{font-size:24px;letter-spacing:0}
+  /* Outlined variant for VIP swap layout */
+  .footer-bar.swap{padding-bottom:86px}
+  .footer-bar.swap .fb-cta{
+    background:transparent;color:var(--orange);
+    border:1.5px solid var(--orange);
+    box-shadow:none;
+    text-shadow:0 1px 4px rgba(0,0,0,.5);
+  }
+
+  /* Brand lockup in footer */
+  .fb-brand{display:flex;align-items:center;gap:24px}
+  .fb-brand .zaf{height:33px;width:auto;display:block;opacity:.92}
+  .fb-brand .pipe{width:1px;height:33px;background:var(--gold-deep);opacity:.55}
+  .fb-brand .avla{height:42px;width:auto;display:block;opacity:.92}
+
+  /* ============================================
+     Format wrappers — Story (vertical) & Landscape
+     ============================================ */
+  .fmt{position:relative;overflow:hidden;background:var(--plum-deep)}
+  .fmt-story{width:1080px;height:1920px}
+  .fmt-landscape{width:1920px;height:1080px}
+
+  .fmt .ext{position:absolute;object-fit:cover;object-position:75% 62%}
+  /* Story — extend up/down by mirroring */
+  .fmt-story .ext{left:0;width:1080px;height:420px}
+  .fmt-story .ext.top{top:0;transform:scaleY(-1)}
+  .fmt-story .ext.bottom{bottom:0;transform:scaleY(-1)}
+  /* Landscape — extend left/right by mirroring */
+  .fmt-landscape .ext{top:0;height:1080px;width:420px}
+  .fmt-landscape .ext.left{left:0;transform:scaleX(-1)}
+  .fmt-landscape .ext.right{right:0;transform:scaleX(-1)}
+
+  .fmt .square-inset{position:absolute;width:1080px;height:1080px}
+  .fmt-story .square-inset{top:420px;left:0}
+  .fmt-landscape .square-inset{top:0;left:420px}
+
+  /* On dark dark backgrounds for klasik+plan (already dark) just inherit. For full-bleed ones same. */
+
+  /* DC artboard styling override */
+  .dc-artboard{background:#1f1c40}
+</style>
+<style>
+  .export-bar{
+    position:fixed;top:14px;right:14px;z-index:9999;
+    display:flex;align-items:center;gap:14px;
+    background:rgba(15,28,62,.92);backdrop-filter:blur(10px);
+    padding:10px 14px;border-radius:6px;border:1px solid rgba(201,182,138,.32);
+    color:#fff;font-family:Inter,sans-serif;
+  }
+  .export-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--orange);color:#fff;
+    padding:11px 18px;border-radius:3px;
+    font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    cursor:pointer;transition:background .2s;
+  }
+  .export-btn:hover{background:var(--orange-deep)}
+  .export-btn[disabled]{opacity:.55;cursor:wait;background:var(--gold-deep)}
+  .export-btn .status{font-size:11px;font-weight:600;letter-spacing:.08em;opacity:.88;text-transform:none;margin-left:6px}
+  .export-hint{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.02em;max-width:280px;line-height:1.45}
+</style>
+</head>
+<body>
+
+<div class="export-bar">
+  <button id="dl-all" class="export-btn">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+      <path d="M5 20h14v-2H5v2zm7-2 5-5h-3V4h-4v9H7l5 5z"/>
+    </svg>
+    <span class="label">Kare reklamları PNG indir</span>
+    <span class="status"></span>
+  </button>
+  <span class="export-hint">4 adet 1080×1080 PNG — her biri ayrı dosya olarak iner</span>
+</div>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+
+
+
+
+const HERO = "./img/boardroom-hero.png";
+const AVLA = "./img/avla-horizontal-trimmed.png";
+const ZAF = "./img/zafido-logo-gold.png";
+
+const BrandLockupFooter = () =>
+<div className="fb-brand">
+    <img className="zaf" src={ZAF} alt="Zafido" />
+    <span className="pipe"></span>
+    <img className="avla" src={AVLA} alt="Avla Real Estate" />
+  </div>;
+
+
+const FooterBar = ({ date, cta, swap }) =>
+<div className={swap ? "footer-bar swap" : "footer-bar"}>
+    {swap ?
+  <>
+        <div className="fb-cta" style={{ padding: "18px 30px" }}>{cta} <span className="arrow">↓</span></div>
+        {date && <div className="fb-date">{date.line1}<em>{date.line2}</em></div>}
+        <BrandLockupFooter />
+      </> :
+
+  <>
+        <BrandLockupFooter />
+        {date && <div className="fb-date">{date.line1}<em>{date.line2}</em></div>}
+        <div className="fb-cta">{cta} <span className="arrow">→</span></div>
+      </>
+  }
+  </div>;
+
+
+/* ===== Format wrappers — extend photo by mirror-cloning ===== */
+const StoryWrap = ({ children }) =>
+<div className="fmt fmt-story">
+    <img className="ext top" src={HERO} alt="" />
+    <img className="ext bottom" src={HERO} alt="" />
+    <div className="square-inset">{children}</div>
+  </div>;
+
+const LandscapeWrap = ({ children }) =>
+<div className="fmt fmt-landscape">
+    <img className="ext left" src={HERO} alt="" />
+    <img className="ext right" src={HERO} alt="" />
+    <div className="square-inset">{children}</div>
+  </div>;
+
+
+/* ===== AD 1 — VIP DAVET ===== */
+const AdVip = () =>
+<div className="ad ad-vip">
+    <img className="hero-img" src={HERO} alt="" />
+    <div className="scrim"></div>
+
+    <div className="top">
+      <span className="eye">Zafido <span className="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+      <div className="meta">
+        <span><span className="gold">7 Haziran 2026</span> · Pazar</span>
+        <span className="sep"></span>
+        <span><span className="gold">InterContinental</span> Taksim Penthouse</span>
+        <span className="sep"></span>
+        <span><span className="gold">10:30–19:30</span></span>
+      </div>
+    </div>
+
+    <div className="center">
+      <h1>Özel<em>Buluşma | Atina GV</em></h1>
+      <div className="sub">
+        <span className="warm" style={{ fontSize: "45px" }}>sizi konuk etmekten mutluluk duyarız</span>
+      </div>
+    </div>
+
+    <FooterBar
+    cta="Davetiye Talep Et"
+    swap />
+  
+  </div>;
+
+
+/* ===== AD 2 — PLAN B (VIP layout, full-bleed) ===== */
+const AdPlan = () =>
+<div className="ad ad-vip">
+    <img className="hero-img" src={HERO} alt="" />
+    <div className="scrim"></div>
+
+    <div className="top">
+      <span className="eye">Zafido <span className="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+      <div className="meta">
+        <span><span className="gold">7 Haziran 2026</span> · Pazar</span>
+        <span className="sep"></span>
+        <span><span className="gold">InterContinental</span> Taksim Penthouse</span>
+        <span className="sep"></span>
+        <span><span className="gold">10:30–19:30</span></span>
+      </div>
+    </div>
+
+    <div className="center">
+      <h1>Avrupa'da<em>Plan B'niz hazır</em></h1>
+      <div className="sub">
+        <span className="warm" style={{ fontSize: "45px" }}>yatırımdan başlayan, ailenizle büyüyen bir özgürlük</span>
+      </div>
+    </div>
+
+    <FooterBar
+    cta="Davetiye Talep Et"
+    swap />
+  
+  </div>;
+
+
+/* ===== AD 3 — PAZAR KAHVESİ (VIP layout, full-bleed) ===== */
+const AdKahve = () =>
+<div className="ad ad-vip">
+    <img className="hero-img" src={HERO} alt="" />
+    <div className="scrim"></div>
+
+    <div className="top">
+      <span className="eye">Zafido <span className="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+      <div className="meta">
+        <span><span className="gold">7 Haziran 2026</span> · Pazar</span>
+        <span className="sep"></span>
+        <span><span className="gold">InterContinental</span> Taksim Penthouse</span>
+        <span className="sep"></span>
+        <span><span className="gold">10:30–19:30</span></span>
+      </div>
+    </div>
+
+    <div className="center">
+      <h1>Penthouse'ta kahve,<em>Atina'da anahtar</em></h1>
+      <div className="sub">
+        <span className="warm" style={{ fontSize: "45px" }}>bir pazar sabahı, bir hayat kararı</span>
+      </div>
+    </div>
+
+    <FooterBar
+    cta="Davetiye Talep Et"
+    swap />
+  
+  </div>;
+
+
+/* ===== AD 4 — KLASIK (VIP layout, full-bleed) ===== */
+const AdKlasik = () =>
+<div className="ad ad-vip">
+    <img className="hero-img" src={HERO} alt="" />
+    <div className="scrim"></div>
+
+    <div className="top">
+      <span className="eye">Zafido <span className="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+      <div className="meta">
+        <span><span className="gold">7 Haziran 2026</span> · Pazar</span>
+        <span className="sep"></span>
+        <span><span className="gold">InterContinental</span> Taksim Penthouse</span>
+        <span className="sep"></span>
+        <span><span className="gold">10:30–19:30</span></span>
+      </div>
+    </div>
+
+    <div className="center">
+      <h1>Atina portföyü<em>Size Açılıyor</em></h1>
+      <div className="sub">
+        <span className="warm" style={{ fontSize: "45px" }}>Atina portföyü, sizin için açılıyor</span>
+      </div>
+    </div>
+
+    <FooterBar
+    cta="Davetiye Talep Et"
+    swap />
+  
+  </div>;
+
+
+/* ===== CANVAS ===== */
+const App = () =>
+<DesignCanvas title="Avla × Zafido — Instagram Reklam Konseptleri">
+    <DCSection id="ig-feed" title="Instagram Feed · 1080 × 1080" subtitle="4 konsept · aynı hero görsel, farklı söylem">
+      <DCArtboard id="vip" label="01 · VIP DAVET — Özel Buluşma" width={1080} height={1080}>
+        <AdVip />
+      </DCArtboard>
+
+      <DCArtboard id="plan" label="02 · PLAN B — Avrupa'da" width={1080} height={1080}>
+        <AdPlan />
+      </DCArtboard>
+
+      <DCArtboard id="kahve" label="03 · PAZAR KAHVESİ" width={1080} height={1080}>
+        <AdKahve />
+      </DCArtboard>
+
+      <DCArtboard id="klasik" label="04 · KLASIK — Yeni Projeler" width={1080} height={1080}>
+        <AdKlasik />
+      </DCArtboard>
+    </DCSection>
+  </DesignCanvas>;
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+/* ===== PNG export: capture only square ads (4 × 1080×1080) and trigger downloads ===== */
+(function setupPngExport() {
+  const btn = document.getElementById('dl-all');
+  if (!btn) return;
+  const statusEl = btn.querySelector('.status');
+  const setStatus = (t) => {statusEl.textContent = t ? ` · ${t}` : '';};
+  const labels = ['01_vip-davet', '02_plan-b', '03_pazar-kahvesi', '04_klasik'];
+
+  function triggerDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.rel = 'noopener';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {URL.revokeObjectURL(url);a.remove();}, 4000);
+  }
+
+  btn.addEventListener('click', async () => {
+    if (btn.disabled) return;
+    btn.disabled = true;
+    setStatus('hazırlanıyor…');
+    try {
+      if (!window.htmlToImage) throw new Error('html-to-image yüklenemedi (CDN engellenmiş olabilir)');
+      // Capture ONLY the square ads — .ad inside ig-feed section, NOT the .fmt-story / .fmt-landscape ones.
+      const squareSection = Array.from(document.querySelectorAll('.dc-section')).find((s) => /1080\s*×\s*1080/.test(s.textContent));
+      const cards = squareSection ? squareSection.querySelectorAll('.dc-card') : [];
+      const total = cards.length || 4;
+      let i = 0;
+      for (const card of cards) {
+        const target = card.querySelector('.ad');
+        if (!target) {i++;continue;}
+        i++;
+        setStatus(`${i}/${total}`);
+        const w = parseFloat(getComputedStyle(target).width) || 1080;
+        const h = parseFloat(getComputedStyle(target).height) || 1080;
+        const blob = await window.htmlToImage.toBlob(target, {
+          pixelRatio: 1,
+          width: w, height: h,
+          canvasWidth: w, canvasHeight: h,
+          cacheBust: true,
+          style: { transform: 'none' }
+        });
+        if (!blob) throw new Error(`PNG üretilemedi (${i}/${total})`);
+        const name = (labels[i - 1] || `ad-${i}`) + '.png';
+        triggerDownload(blob, name);
+        await new Promise((r) => setTimeout(r, 350));
+      }
+      setStatus('indirildi ✓');
+    } catch (e) {
+      console.error(e);
+      setStatus('hata: ' + (e.message || e));
+      alert('PNG indirme hatası: ' + (e.message || e) + '\n\nEğer hâlâ işlemiyorsa, tarayıcının popup engelini kontrol et veya sayfayı yeni sekmede aç.');
+    } finally {
+      btn.disabled = false;
+      setTimeout(() => setStatus(''), 6000);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

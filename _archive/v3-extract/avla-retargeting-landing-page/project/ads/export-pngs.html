@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avla × Zafido — PNG Export</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0F2647; --ink-deep:#0a1b34;
+    --plum-deep:#1f1c40; --plum-mid:#2c2654;
+    --gold:#C9B68A; --gold-bright:#dec79c; --gold-deep:#a8946a;
+    --orange:#F08025; --orange-deep:#d96d18;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", -apple-system, sans-serif;
+  }
+  html,body{margin:0;padding:0;background:#1a1f2e;font-family:var(--sans);color:#fff}
+  *{box-sizing:border-box}
+  body{padding:40px;display:flex;flex-direction:column;align-items:center;gap:40px}
+
+  .panel{
+    background:rgba(15,28,62,.92);padding:20px 28px;border-radius:6px;
+    border:1px solid rgba(201,182,138,.32);max-width:920px;text-align:center;
+  }
+  .panel h1{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 10px;color:var(--gold-bright)}
+  .panel p{margin:0 0 14px;font-size:14px;color:rgba(255,255,255,.78);line-height:1.6}
+  .panel .dl-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
+  .panel a.dl{
+    display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;
+    padding:14px 20px;border-radius:3px;text-decoration:none;
+    font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    transition:background .2s;
+  }
+  .panel a.dl:hover{background:var(--orange-deep)}
+  .panel a.dl[aria-disabled="true"]{opacity:.4;cursor:wait;pointer-events:none}
+  .status{font-size:12px;color:var(--gold);letter-spacing:.04em}
+
+  /* === AD STYLES (full copy) === */
+  .ad{
+    width:1080px;height:1080px;
+    position:relative;overflow:hidden;
+    background:var(--plum-deep);color:#fff;
+    font-family:var(--sans);
+    flex-shrink:0;
+  }
+  .ad .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 62%;z-index:1}
+  .ad .scrim{position:absolute;inset:0;z-index:2;pointer-events:none}
+
+  .ad-vip .scrim{
+    background:linear-gradient(180deg, rgba(32,28,62,.95) 0%, rgba(32,28,62,.78) 18%, rgba(32,28,62,.18) 42%, rgba(32,28,62,.0) 58%, rgba(32,28,62,.30) 82%, rgba(32,28,62,.95) 100%);
+  }
+  .ad-vip .top{
+    position:absolute;top:0;left:0;right:0;z-index:4;
+    padding:60px 70px 0;
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;
+  }
+  .ad-vip .eye{
+    font-family:var(--serif);font-weight:400;font-size:48px;letter-spacing:.01em;
+    color:var(--gold);text-shadow:0 2px 8px rgba(0,0,0,.55);
+    display:inline-flex;align-items:baseline;gap:14px;
+  }
+  .ad-vip .eye em{font-style:italic;color:var(--gold-bright);font-weight:500}
+  .ad-vip .eye .amp{font-style:italic;color:var(--orange);font-weight:500;font-size:56px;line-height:1}
+  .ad-vip .meta{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    font-family:var(--sans);font-size:19px;letter-spacing:.08em;text-transform:uppercase;
+    color:#fff;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.7);
+    white-space:nowrap;flex-wrap:nowrap;
+  }
+  .ad-vip .meta .gold{color:var(--gold-bright);font-weight:700}
+  .ad-vip .meta .sep{width:5px;height:5px;border-radius:50%;background:var(--orange)}
+
+  .ad-vip .center{position:absolute;left:64px;top:270px;z-index:4;text-align:left;max-width:760px}
+  .ad-vip .center h1{
+    font-family:var(--serif);font-weight:400;font-size:96px;line-height:.92;letter-spacing:-.015em;
+    margin:0;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.75), 0 2px 8px rgba(0,0,0,.6);
+  }
+  .ad-vip .center h1 em{display:block;font-style:italic;color:var(--gold-bright);font-weight:500;margin-top:4px}
+  .ad-vip .center .sub{
+    margin-top:2px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--gold);
+    font-weight:400;letter-spacing:.005em;text-shadow:0 2px 8px rgba(0,0,0,.6);line-height:1.35;white-space:nowrap;
+  }
+  .ad-vip .center .sub .warm{display:inline-block;color:var(--gold-bright);font-size:45px;font-style:italic}
+
+  .footer-bar{
+    position:absolute;left:0;right:0;bottom:0;z-index:5;
+    padding:30px 56px 36px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    background:linear-gradient(180deg, rgba(32,28,62,0) 0%, rgba(32,28,62,.55) 30%, rgba(32,28,62,.95) 100%);
+  }
+  .footer-bar.swap{padding-bottom:86px}
+  .fb-brand{display:flex;align-items:center;gap:24px}
+  .fb-brand .zaf{height:33px;width:auto;display:block;opacity:.92}
+  .fb-brand .pipe{width:1px;height:33px;background:var(--gold-deep);opacity:.55}
+  .fb-brand .avla{height:42px;width:auto;display:block;opacity:.92}
+  .fb-cta{
+    display:inline-flex;align-items:center;gap:21px;background:transparent;color:var(--orange);
+    border:1.5px solid var(--orange);padding:27px 45px;border-radius:2px;
+    font-size:20px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+    text-shadow:0 1px 4px rgba(0,0,0,.5);
+  }
+  .fb-cta .arrow{font-size:24px;letter-spacing:0}
+</style>
+</head>
+<body>
+
+<div class="panel">
+  <h1>Instagram Reklamları · PNG Export</h1>
+  <p>4 adet kare 1080×1080 reklam aşağıda render ediliyor. Hazır olunca her butonu tıklayıp PNG indirebilirsiniz.</p>
+  <div class="status" id="status">Hazırlanıyor…</div>
+  <div class="dl-grid" id="dl-grid">
+    <a class="dl" aria-disabled="true" id="dl-0" download="01_vip-davet.png">↓ 01 · VIP DAVET</a>
+    <a class="dl" aria-disabled="true" id="dl-1" download="02_plan-b.png">↓ 02 · PLAN B</a>
+    <a class="dl" aria-disabled="true" id="dl-2" download="03_pazar-kahvesi.png">↓ 03 · PAZAR KAHVESİ</a>
+    <a class="dl" aria-disabled="true" id="dl-3" download="04_klasik.png">↓ 04 · KLASIK</a>
+  </div>
+</div>
+
+<!-- AD 1: VIP DAVET -->
+<div class="ad ad-vip" data-export="01_vip-davet">
+  <img class="hero-img" src="./img/boardroom-hero-1080.png" alt="">
+  <div class="scrim"></div>
+  <div class="top">
+    <span class="eye">Zafido <span class="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+    <div class="meta">
+      <span><span class="gold">7 Haziran 2026</span> · Pazar</span>
+      <span class="sep"></span>
+      <span><span class="gold">InterContinental</span> Taksim Penthouse</span>
+      <span class="sep"></span>
+      <span><span class="gold">10:30–19:30</span></span>
+    </div>
+  </div>
+  <div class="center">
+    <h1>Özel<em>Buluşma | Atina GV</em></h1>
+    <div class="sub"><span class="warm">sizi konuk etmekten mutluluk duyarız</span></div>
+  </div>
+  <div class="footer-bar swap">
+    <div class="fb-cta">Davetiye Talep Et <span class="arrow">↓</span></div>
+    <div class="fb-brand">
+      <img class="zaf" src="./img/zafido-logo-gold.png" alt="Zafido">
+      <span class="pipe"></span>
+      <img class="avla" src="./img/avla-horizontal-trimmed.png" alt="Avla">
+    </div>
+  </div>
+</div>
+
+<!-- AD 2: PLAN B -->
+<div class="ad ad-vip" data-export="02_plan-b">
+  <img class="hero-img" src="./img/boardroom-hero-1080.png" alt="">
+  <div class="scrim"></div>
+  <div class="top">
+    <span class="eye">Zafido <span class="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+    <div class="meta">
+      <span><span class="gold">7 Haziran 2026</span> · Pazar</span>
+      <span class="sep"></span>
+      <span><span class="gold">InterContinental</span> Taksim Penthouse</span>
+      <span class="sep"></span>
+      <span><span class="gold">10:30–19:30</span></span>
+    </div>
+  </div>
+  <div class="center">
+    <h1>Avrupa'da<em>Plan B'niz hazır</em></h1>
+    <div class="sub"><span class="warm">yatırımdan başlayan, ailenizle büyüyen bir özgürlük</span></div>
+  </div>
+  <div class="footer-bar swap">
+    <div class="fb-cta">Davetiye Talep Et <span class="arrow">↓</span></div>
+    <div class="fb-brand">
+      <img class="zaf" src="./img/zafido-logo-gold.png" alt="Zafido">
+      <span class="pipe"></span>
+      <img class="avla" src="./img/avla-horizontal-trimmed.png" alt="Avla">
+    </div>
+  </div>
+</div>
+
+<!-- AD 3: PAZAR KAHVESİ -->
+<div class="ad ad-vip" data-export="03_pazar-kahvesi">
+  <img class="hero-img" src="./img/boardroom-hero-1080.png" alt="">
+  <div class="scrim"></div>
+  <div class="top">
+    <span class="eye">Zafido <span class="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+    <div class="meta">
+      <span><span class="gold">7 Haziran 2026</span> · Pazar</span>
+      <span class="sep"></span>
+      <span><span class="gold">InterContinental</span> Taksim Penthouse</span>
+      <span class="sep"></span>
+      <span><span class="gold">10:30–19:30</span></span>
+    </div>
+  </div>
+  <div class="center">
+    <h1>Penthouse'ta kahve,<em>Atina'da anahtar</em></h1>
+    <div class="sub"><span class="warm">bir pazar sabahı, bir hayat kararı</span></div>
+  </div>
+  <div class="footer-bar swap">
+    <div class="fb-cta">Davetiye Talep Et <span class="arrow">↓</span></div>
+    <div class="fb-brand">
+      <img class="zaf" src="./img/zafido-logo-gold.png" alt="Zafido">
+      <span class="pipe"></span>
+      <img class="avla" src="./img/avla-horizontal-trimmed.png" alt="Avla">
+    </div>
+  </div>
+</div>
+
+<!-- AD 4: KLASIK -->
+<div class="ad ad-vip" data-export="04_klasik">
+  <img class="hero-img" src="./img/boardroom-hero-1080.png" alt="">
+  <div class="scrim"></div>
+  <div class="top">
+    <span class="eye">Zafido <span class="amp">&amp;</span> Avla — <em>Yatırım Buluşması</em></span>
+    <div class="meta">
+      <span><span class="gold">7 Haziran 2026</span> · Pazar</span>
+      <span class="sep"></span>
+      <span><span class="gold">InterContinental</span> Taksim Penthouse</span>
+      <span class="sep"></span>
+      <span><span class="gold">10:30–19:30</span></span>
+    </div>
+  </div>
+  <div class="center">
+    <h1>Atina portföyü<em>Size Açılıyor</em></h1>
+    <div class="sub"><span class="warm">Atina portföyü, sizin için açılıyor</span></div>
+  </div>
+  <div class="footer-bar swap">
+    <div class="fb-cta">Davetiye Talep Et <span class="arrow">↓</span></div>
+    <div class="fb-brand">
+      <img class="zaf" src="./img/zafido-logo-gold.png" alt="Zafido">
+      <span class="pipe"></span>
+      <img class="avla" src="./img/avla-horizontal-trimmed.png" alt="Avla">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.13/dist/html-to-image.min.js"></script>
+<script>
+window.__exports = [];
+(async () => {
+  const statusEl = document.getElementById('status');
+  // wait for all images to load (fonts may still be loading but should be quick)
+  await new Promise(r => window.addEventListener('load', r, { once: true }));
+  await new Promise(r => setTimeout(r, 800)); // let fonts settle
+  if (document.fonts && document.fonts.ready) {
+    try { await document.fonts.ready; } catch(e){}
+  }
+
+  const ads = document.querySelectorAll('.ad[data-export]');
+  for (let i = 0; i < ads.length; i++) {
+    const ad = ads[i];
+    statusEl.textContent = `Render ediliyor: ${i+1}/${ads.length}…`;
+    try {
+      const blob = await window.htmlToImage.toBlob(ad, {
+        pixelRatio: 1,
+        width: 1080, height: 1080,
+        canvasWidth: 1080, canvasHeight: 1080,
+        cacheBust: true,
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.getElementById(`dl-${i}`);
+      link.href = url;
+      link.removeAttribute('aria-disabled');
+      // also stash base64 for agent retrieval
+      const buf = await blob.arrayBuffer();
+      const bytes = new Uint8Array(buf);
+      let bin = '';
+      const chunk = 8192;
+      for (let k = 0; k < bytes.length; k += chunk) {
+        bin += String.fromCharCode.apply(null, bytes.subarray(k, k + chunk));
+      }
+      window.__exports.push({ name: ad.dataset.export, base64: btoa(bin), size: bytes.length });
+    } catch (e) {
+      console.error('Export failed for', i, e);
+    }
+  }
+  statusEl.textContent = `${window.__exports.length} PNG hazır. Her birini tıkla indir.`;
+  window.__exportsReady = true;
+})();
+</script>
+
+</body>
+</html>
