@@ -923,27 +923,64 @@ footer{
 }
 @media (max-width:760px){
   .container{padding:0 22px}
-  .top-strip{font-size:10px;letter-spacing:.14em;padding:0 14px}
-  .top-strip .ts-inner{gap:8px}
+  .top-strip{font-size:9.5px;letter-spacing:.10em;padding:0 10px}
+  .top-strip .ts-inner{gap:6px}
   nav.bar{top:34px}
   .top-strip{height:34px}
   .nav-wrap{padding:10px 18px;gap:10px}
   .nav-links{display:none}
   .brand .avla-mark img{width:38px;height:38px}
   .brand .b-divider{height:28px}
-  .brand .b-name{font-size:18px}
+  .brand .b-name{font-size:16px;white-space:nowrap}
   .brand .b-sub{font-size:8.5px;letter-spacing:.26em}
   .nav-cta{padding:9px 14px;font-size:10px;letter-spacing:.16em}
   .nav-cta .arrow{display:none}
-  .hero{padding-top:120px;min-height:auto}
-  .hero-inner{padding:60px 22px 60px}
-  .hero h1{font-size:42px}
-  .hero .hero-avla{width:90px;margin-bottom:6px}
-  .hero .hero-tagline{font-size:18px;margin-bottom:10px}
-  .hero .signature{font-size:18px;margin-top:24px}
-  .hero .lead{font-size:15px}
-  .hero-actions{flex-direction:column;gap:10px;width:100%}
-  .hero-actions .btn{width:100%;justify-content:center;padding:16px 20px}
+  /* Mobile hero: stack image on top, content below — keeps face clear of buttons */
+  .hero{padding-top:0;min-height:0;background:var(--ink-deep);display:flex;flex-direction:column}
+  .hero .hero-img{
+    position:relative;inset:auto;
+    width:100%;height:58vh;max-height:480px;min-height:340px;
+    object-position:center 32%;
+    margin-top:calc(34px + 56px); /* top-strip + nav */
+  }
+  .hero::before{
+    inset:calc(34px + 56px) 0 auto 0;
+    height:58vh;max-height:480px;min-height:340px;
+    background:linear-gradient(180deg,
+      rgba(10,27,52,.30) 0%,
+      rgba(10,27,52,0) 22%,
+      rgba(10,27,52,0) 55%,
+      rgba(10,27,52,.55) 80%,
+      var(--ink-deep) 100%);
+  }
+  .hero-inner{
+    padding:30px 26px 44px !important;min-height:0;
+    position:relative;z-index:3;
+    align-items:center;text-align:center;
+  }
+  .hero-inner::before{
+    content:"";display:block;width:42px;height:1px;
+    background:var(--gold);margin:0 auto 22px;opacity:.7;
+  }
+  .hero .hero-avla{width:74px;margin:0 auto 18px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+  .hero .hero-tagline{
+    font-size:15px;margin:0 0 14px;
+    letter-spacing:.04em;color:var(--gold-bright);
+  }
+  .hero h1{
+    font-size:46px;line-height:1;letter-spacing:-.015em;
+    max-width:none;text-align:center;text-shadow:none;
+  }
+  .hero h1 .first{font-weight:300}
+  .hero h1 .last{margin-top:2px}
+  .hero .signature{font-size:17px;margin-top:22px;padding-left:0;max-width:32ch}
+  .hero .signature::before{display:none}
+  .hero .lead{font-size:14.5px;margin-top:18px;max-width:38ch}
+  .hero-actions{
+    flex-direction:column;gap:10px !important;width:100%;
+    margin:28px 0 0 !important;align-items:stretch;max-width:340px;
+  }
+  .hero-actions .btn{width:100%;justify-content:center;padding:17px 20px;font-size:11px;letter-spacing:.22em}
   .hero-credit{display:none}
   .trust-grid{grid-template-columns:1fr 1fr}
   .trust-cell{padding:32px 22px;border-right:0;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -961,8 +998,9 @@ footer{
   .event-meta > div{border-bottom:1px solid rgba(201,182,138,.25)}
   .event-meta > div + div{border-left:0}
   .event-meta > div:last-child{border-bottom:0}
-  .event-actions{grid-template-columns:1fr;width:100%}
-  .event-actions .btn{width:100%;justify-content:center}
+  .event-actions{grid-template-columns:1fr;width:auto;height:auto !important;gap:12px;margin-left:18px;margin-right:18px}
+  .event-actions .btn{width:100%;justify-content:center;height:auto !important;padding:16px 18px;white-space:nowrap;font-size:10.5px;letter-spacing:.22em}
+  .event-actions .btn-or.flash-btn{box-shadow:0 4px 14px rgba(240,128,37,.28)}
   .works{padding:80px 0}
   .works-grid{grid-template-columns:1fr;gap:14px}
   .creds{padding:80px 0}
@@ -977,8 +1015,26 @@ footer{
   .ch .ic svg{width:22px;height:22px}
   .ch .v{font-size:19px}
   .fdock{display:none}
-  .foot-top{grid-template-columns:1fr;gap:30px}
+  .foot-top{grid-template-columns:1fr 1fr;gap:30px 24px}
+  .foot-brand{grid-column:1 / -1}
+  .foot-col:first-of-type{grid-column:1 / -1}
+  .foot-col:first-of-type ul{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto auto;
+    grid-auto-flow:column;
+    gap:14px 28px;
+  }
   footer{padding:42px 0 100px}
+}
+@media (max-width:430px){
+  .top-strip{font-size:9px;letter-spacing:.06em;padding:0 8px}
+  .top-strip .ts-inner{gap:4px}
+}
+@media (max-width:380px){
+  .top-strip{font-size:8.5px;letter-spacing:.02em}
+  .top-strip .ts-last{display:none}
+  .top-strip .ts-sep-last{display:none}
 }
 </style>
 </head>
@@ -988,7 +1044,7 @@ footer{
 <div class="top-strip" data-screen-label="Top strip">
   <div class="ts-inner">
     <span class="pulse"></span>
-    <span><span class="gold-acc">7 Haziran 2026</span> &nbsp;·&nbsp; InterContinental Taksim &nbsp;·&nbsp; Sınırlı Kontenjan</span>
+    <span><span class="gold-acc">7 Haziran 2026</span> &nbsp;·&nbsp; <span class="ts-mid">InterContinental Taksim</span><span class="ts-sep-last"> &nbsp;·&nbsp; </span><span class="ts-last">Sınırlı Kontenjan</span></span>
   </div>
 </div>
 
