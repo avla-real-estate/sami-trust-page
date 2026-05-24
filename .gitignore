@@ -1,0 +1,18 @@
+# Archive (büyük design bundle'lar — sadece final kullanıyoruz)
+_archive/
+*.bin
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+
+# Node (ileride lazım olabilir)
+node_modules/
