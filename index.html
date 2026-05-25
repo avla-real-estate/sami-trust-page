@@ -48,6 +48,34 @@ src="https://www.facebook.com/tr?id=263544950122179&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
+<!-- Google Tag Manager (Avla — unified tracking) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4JQ2XVT');</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "wodsscl1c6");
+</script>
+
+<!-- PostHog (EU Cloud — KVKK uyumlu) -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_v98y5K8fmzdZsQmyqGAQ92oK73PsaxyVrXSwaYi86Cjp', {
+    api_host: 'https://eu.i.posthog.com',
+    person_profiles: 'identified_only',
+    capture_pageview: true,
+    capture_pageleave: true,
+    session_recording: { maskAllInputs: false }
+});
+</script>
+
 <template id="__bundler_thumbnail" data-bg-color="#0F2647">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
     <rect width="1200" height="800" fill="#0F2647"/>
@@ -877,12 +905,16 @@ footer{
     box-shadow:0 -8px 24px rgba(0,0,0,.32);
     font-family:var(--sans);
   }
-  .sticky-cta a{
+  .sticky-cta a,
+  .sticky-cta button{
     display:flex;align-items:center;justify-content:center;gap:10px;
     height:64px;color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
     text-decoration:none;line-height:1;
+    border:0;cursor:pointer;font-family:inherit;
+    padding:0;
   }
-  .sticky-cta a svg{width:20px;height:20px}
+  .sticky-cta a svg,
+  .sticky-cta button svg{width:20px;height:20px;flex-shrink:0}
   .sticky-cta .call{background:var(--orange)}
   .sticky-cta .wa{background:#25d366}
   .sticky-cta .call:active{background:var(--orange-deep)}
@@ -1068,35 +1100,6 @@ footer{
   .top-strip .ts-sep-last{display:none}
 }
 </style>
-
-<!-- Google Tag Manager (Avla — unified tracking) -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T4JQ2XVT');</script>
-
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-(function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "wodsscl1c6");
-</script>
-
-<!-- PostHog (EU Cloud — KVKK uyumlu) -->
-<script>
-!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-posthog.init('phc_v98y5K8fmzdZsQmyqGAQ92oK73PsaxyVrXSwaYi86Cjp', {
-    api_host: 'https://eu.i.posthog.com',
-    person_profiles: 'identified_only',
-    capture_pageview: true,
-    capture_pageleave: true,
-    session_recording: { maskAllInputs: false }
-});
-</script>
-
 </head>
 <body>
 
@@ -1666,10 +1669,10 @@ posthog.init('phc_v98y5K8fmzdZsQmyqGAQ92oK73PsaxyVrXSwaYi86Cjp', {
 
 <!-- ============ MOBILE STICKY CTA ============ -->
 <div class="sticky-cta" aria-label="Hızlı erişim">
-  <a class="call" href="tel:+905322822657" aria-label="Telefonla ara">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/></svg>
-    <span>Hemen Ara</span>
-  </a>
+  <button type="button" class="call" data-cta="event_davet_form" aria-label="Davetiye talebi formunu aç">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    <span>Hemen Katıl</span>
+  </button>
   <a class="wa" href="https://wa.me/905322822657?text=Sami%20Bey%2C%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yaz">
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39-.077 0-.139-.027-.207-.066-.508-.252-.917-.452-1.391-.794-.474-.342-.929-.78-1.366-1.27a14.6 14.6 0 0 1-1.067-1.444c-.295-.461-.582-1.029-.582-1.578v-.06c.018-.502.318-.787.624-1.124.197-.218.413-.451.413-.696 0-.198-.057-.405-.142-.583-.142-.297-.295-.601-.443-.903-.142-.297-.275-.591-.434-.881-.149-.272-.317-.471-.624-.471-.099 0-.198.005-.297.005-.297 0-.598.025-.881.118-.532.169-.97.717-1.077 1.244-.045.218-.045.443-.045.665 0 .642.158 1.265.387 1.857.346.892.802 1.738 1.339 2.531.819 1.197 1.799 2.244 2.945 3.116.567.434 1.18.797 1.834 1.081.726.317 1.487.524 2.275.628.157.022.314.029.471.029.811 0 1.605-.207 2.207-.752.252-.228.461-.5.581-.83.115-.317.075-.602-.057-.892-.166-.366-.65-.575-1.013-.762-.408-.21-.834-.378-1.279-.502a2.59 2.59 0 0 0-.66-.09zM15.998 4.5c-6.347 0-11.498 5.151-11.498 11.498 0 2.083.563 4.105 1.626 5.874l.293.475-1.235 4.501 4.622-1.213.45.272a11.4 11.4 0 0 0 5.737 1.568h.005c6.347 0 11.498-5.151 11.498-11.498S22.345 4.5 15.998 4.5zm0 21.143h-.004a9.59 9.59 0 0 1-4.875-1.335l-.349-.207-3.62.95.967-3.527-.227-.361a9.55 9.55 0 0 1-1.463-5.165c.001-5.288 4.305-9.591 9.595-9.591 2.564 0 4.974.999 6.786 2.812a9.53 9.53 0 0 1 2.808 6.787c-.002 5.291-4.306 9.594-9.594 9.594z"/></svg>
     <span>WhatsApp</span>
