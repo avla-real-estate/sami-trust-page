@@ -2025,6 +2025,21 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         }
       } catch(pixelErr) { console.warn('Pixel Lead event failed:', pixelErr); }
+      // GTM dataLayer — Google Ads + GA4 conversion (kritik!)
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_form_submit',
+          conversion_event: 'generate_lead',
+          conversion_value: 1,
+          currency: 'TRY',
+          language: 'tr',
+          form_id: 'davet_modal',
+          source: 'sami_trust_page',
+          investment_budget: data.investment_budget || '',
+          investment_timeline: data.investment_timeline || ''
+        });
+      } catch(gtmErr) { console.warn('GTM event failed:', gtmErr); }
     } catch (err) {
       console.error(err);
       if (err && err.name === 'AbortError') {
@@ -2139,6 +2154,75 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     return out;
   }
+})();
+</script>
+
+<!-- ============ CONVERSION CLICK TRACKING (Google Ads + GA4) ============ -->
+<script>
+(function(){
+  window.dataLayer = window.dataLayer || [];
+
+  function pushEvent(eventName, params){
+    try {
+      window.dataLayer.push(Object.assign({event: eventName, source: 'sami_trust_page', language: 'tr'}, params));
+    } catch(_){}
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a, button');
+    if(!a) return;
+
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    var dataCta = a.getAttribute('data-cta') || '';
+    var label = (a.textContent || '').trim().slice(0, 50);
+
+    // Telefon click
+    if(href.indexOf('tel:') === 0){
+      pushEvent('phone_click', {
+        conversion_event: 'phone_call_intent',
+        conversion_value: 1,
+        currency: 'TRY',
+        phone_number: href.replace('tel:', ''),
+        label: label
+      });
+    }
+    // WhatsApp click
+    else if(href.indexOf('wa.me') > -1 || href.indexOf('whatsapp.com') > -1){
+      pushEvent('whatsapp_click', {
+        conversion_event: 'whatsapp_intent',
+        conversion_value: 1,
+        currency: 'TRY',
+        label: label
+      });
+    }
+    // Email click
+    else if(href.indexOf('mailto:') === 0){
+      pushEvent('email_click', {
+        conversion_event: 'email_intent',
+        currency: 'TRY',
+        label: label
+      });
+    }
+    // Modal/form aç
+    else if(dataCta === 'event_davet_form'){
+      pushEvent('form_open', {
+        conversion_event: 'engagement_form_open',
+        form_id: 'davet_modal',
+        label: label
+      });
+    }
+  }, {passive: true, capture: true});
+
+  // Scroll depth (75% sayfa görüldüğünde — micro conversion)
+  var scrollFired = false;
+  window.addEventListener('scroll', function(){
+    if(scrollFired) return;
+    var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+    if(scrolled >= 0.75){
+      scrollFired = true;
+      pushEvent('scroll_75', {conversion_event: 'engagement_scroll'});
+    }
+  }, {passive: true});
 })();
 </script>
 </body>
