@@ -119,14 +119,14 @@
 }
 </script>
 
-<!-- Schema.org — Event (7 Haziran 2026) -->
+<!-- Schema.org — Event (5 Temmuz 2026) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BusinessEvent",
-  "name": "Penthouse'ta kahve, Atina'da anahtar — Zafido & Avla Yatırım Buluşması",
-  "startDate": "2026-06-07T10:30:00+03:00",
-  "endDate": "2026-06-07T19:30:00+03:00",
+  "name": "Penthouse'ta kahve, Atina'da anahtar — Avla Yunanistan Golden Visa Yatırım Buluşması",
+  "startDate": "2026-07-05T10:30:00+03:00",
+  "endDate": "2026-07-05T19:30:00+03:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -142,10 +142,9 @@
     }
   },
   "image": "https://guvenilir-cozum-ortaginiz.avlarealestate.com/img/og-cover.jpg",
-  "description": "Avla Real Estate & Zafido Holding Hellas özel sunum etkinliği. Yunanistan Golden Visa onaylı projeler, 1-1 danışmanlık. Sınırlı kontenjan, davetiye gerekli.",
+  "description": "Avla Real Estate özel sunum etkinliği. Yunanistan Golden Visa onaylı projeler, 1-1 danışmanlık. Sınırlı kontenjan, davetiye gerekli.",
   "organizer": [
-    {"@id": "https://guvenilir-cozum-ortaginiz.avlarealestate.com/#avla"},
-    {"@type": "Organization", "name": "Zafido Holding Hellas", "url": "https://zafido.com/"}
+    {"@id": "https://guvenilir-cozum-ortaginiz.avlarealestate.com/#avla"}
   ],
   "performer": {"@id": "https://guvenilir-cozum-ortaginiz.avlarealestate.com/#sami"},
   "offers": {
@@ -245,7 +244,7 @@ fbq('init', '263544950122179');
 fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
   content_name: 'Sami Trust Page',
-  content_category: 'Golden Visa - 7 Haziran Etkinlik'
+  content_category: 'Golden Visa - 5 Temmuz Etkinlik'
 });
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -440,6 +439,14 @@ nav.bar{
   object-position:center 40%;
   z-index:1;
 }
+.hero-sound{
+  position:absolute;right:24px;top:88px;z-index:6;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.7);background:rgba(15,38,71,.62);color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  box-shadow:0 4px 16px rgba(0,0,0,.4);transition:background .2s,border-color .2s,transform .2s;
+}
+.hero-sound:hover{background:rgba(10,27,52,.72);border-color:var(--gold);transform:translateY(-1px)}
+@media (max-width:760px){.hero-sound{right:16px;top:76px;width:40px;height:40px}}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:2;
   background:
@@ -1344,7 +1351,14 @@ footer{
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero" data-screen-label="01 Hero">
-  <img class="hero-img" src="./img/hero-boardroom.png" alt="M. Sami Akbeniz, İstanbul ofisinde başkanlık koltuğunda, Boğaz manzaralı toplantı odası">
+  <video class="hero-img" id="hero-video" autoplay loop muted playsinline preload="auto" poster="./img/hero-poster.jpg" aria-label="Avla — Atina Golden Visa tanıtım videosu">
+    <source src="./img/hero-0614.mp4" type="video/mp4">
+  </video>
+  <button type="button" id="hero-sound" class="hero-sound" aria-label="Sesi aç" title="Sesi aç">
+    <svg class="ic-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+    <svg class="ic-on" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+  </button>
+  <script>(function(){var v=document.getElementById('hero-video'),b=document.getElementById('hero-sound');if(!v||!b)return;function u(){var m=v.muted;b.querySelector('.ic-muted').style.display=m?'':'none';b.querySelector('.ic-on').style.display=m?'none':'';b.setAttribute('aria-label',m?'Sesi aç':'Sesi kapat');b.title=m?'Sesi aç':'Sesi kapat';}b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){var p=v.play();if(p&&p.catch)p.catch(function(){});}u();});u();})();</script>
   <div class="hero-inner" style="padding: 0px 32px 280px">
     <a href="https://www.avlarealestate.com/property-status/golden-visa#anchors-lu0ztkov3" target="_blank" rel="noopener" style="display:contents"><img class="hero-avla" src="./img/avla-logo.png" alt="Avla Real Estate" style="margin: 0px 0px 58px"></a>
     <p class="hero-tagline"><em style="padding: 0px">Güvenilir Çözüm Ortağınız</em></p>
@@ -1459,9 +1473,7 @@ footer{
 
       <!-- Brand lockup (Zafido & Avla) — directly above Özel Buluşma -->
       <div class="brand-lockup">
-        <div class="bl-row" style="margin: 0px 0px 100px; gap: 36px; padding: 0px">
-          <img class="bl-zafido" src="./img/zafido-logo-gold.png" alt="Zafido">
-          <span class="bl-amp">&amp;</span>
+        <div class="bl-row" style="margin: 0px 0px 100px; gap: 36px; padding: 0px; justify-content:center">
           <a href="https://www.avlarealestate.com/property-status/golden-visa#anchors-lu0ztkov3" target="_blank" rel="noopener" style="display:contents"><img class="bl-avla" src="./img/avla-horizontal-trimmed.png" alt="Avla Real Estate"></a>
         </div>
       </div>
@@ -1478,14 +1490,14 @@ footer{
         </div>
       </div>
 
-      <div class="event-eyebrow">GERÇEKLEŞTİ · 7 HAZİRAN 2026</div>
+      <div class="event-eyebrow">5 TEMMUZ 2026 · DAVETLİ</div>
       <h3 class="event-title">Özel <em>Buluşma</em></h3>
-      <p class="event-sub">Yunanistan Golden Visa · Zafido &amp; Avla</p>
+      <p class="event-sub">Yunanistan Golden Visa · Avla Real Estate</p>
 
       <div class="event-meta">
         <div>
           <div class="k">Tarih</div>
-          <div class="v">7 Haziran 2026<br><em>Pazar · 10:30–19:30</em></div>
+          <div class="v">5 Temmuz 2026<br><em>Pazar · 10:30–19:30</em></div>
         </div>
         <div>
           <div class="k">Mekân</div>
@@ -1494,7 +1506,7 @@ footer{
       </div>
 
       <div class="event-cap">
-        <em>4 oturum · seans başına 9 danışan ile gerçekleşti — sıradaki buluşmadan önce sizi arayalım</em>
+        <em>6 oturum · seans başına 9 danışan · sınırlı kontenjan — yerinizi şimdiden ayırtın</em>
       </div>
 
       <div class="event-actions">
@@ -1509,7 +1521,7 @@ footer{
 
     <aside class="event-aside" style="margin: 20px 0px 0px">
       <div class="venue-img">
-        <img src="./img/hero-boardroom.png" alt="M. Sami Akbeniz ve Katerina, InterContinental İstanbul Penthouse — Boğaz manzaralı toplantı odası" style="object-position:center 35%">
+        <img src="./img/hero-boardroom.png" alt="M. Sami Akbeniz, InterContinental İstanbul Penthouse — Boğaz manzaralı toplantı odası" style="object-position:center 35%">
         <div class="venue-cap">
           <div class="k">Penthouse</div>
           <div class="v">Intercontinental Taksim <em>Toplantı Salonumuz</em></div>
@@ -1520,15 +1532,14 @@ footer{
           <span class="pb-eyebrow"><span class="pb-num">A</span>Katılımcılar</span>
           <ul class="pb-list">
             <li><span class="role">Avla</span><span class="who">M. Sami Akbeniz <em>· Kurucu Ortak</em></span></li>
-            <li><span class="role">Zafido</span><span class="who">Katerina Grigoriou <em>· Sales Representative</em></span></li>
-            <li><span class="role">Zafido</span><span class="who">Gülşah Alexopoulos <em>· Sales Representative</em></span></li>
+            <li><span class="role">Avla</span><span class="who">Avla Golden Visa Danışmanları</span></li>
           </ul>
         </div>
 
         <div class="pb">
           <span class="pb-eyebrow"><span class="pb-num">B</span>Program &amp; Format</span>
           <p class="pb-p">
-            Salon aynı anda en fazla <b>9 danışan</b> ağırlayabilektedir. Görüşmeler <b>B2C</b> formatında yürütülür — Avla &amp; Zafido uzmanları, danışanlara doğrudan Yunanistan Golden Visa odaklı gayrimenkul sunumu ve birebir danışmanlık verir.
+            Salon aynı anda en fazla <b>9 danışan</b> ağırlayabilmektedir. Görüşmeler <b>B2C</b> formatında yürütülür — Avla uzmanları, danışanlara doğrudan Yunanistan Golden Visa odaklı gayrimenkul sunumu ve birebir danışmanlık verir.
           </p>
         </div>
 
@@ -1537,13 +1548,15 @@ footer{
           <div class="seans-grid">
             <div class="seans-col">
               <div class="seans-label">Sabah</div>
-              <div class="seans"><b>01</b> · 10:30 → 12:30</div>
-              <div class="seans"><b>02</b> · 13:00 → 15:00</div>
+              <div class="seans"><b>01</b> · 10:30 → 12:00</div>
+              <div class="seans"><b>02</b> · 12:15 → 13:30</div>
+              <div class="seans"><b>03</b> · 13:45 → 15:00</div>
             </div>
             <div class="seans-col">
               <div class="seans-label">Öğleden Sonra</div>
-              <div class="seans"><b>03</b> · 15:30 → 17:30</div>
-              <div class="seans"><b>04</b> · 18:00 → 19:30</div>
+              <div class="seans"><b>04</b> · 15:30 → 17:00</div>
+              <div class="seans"><b>05</b> · 17:15 → 18:30</div>
+              <div class="seans"><b>06</b> · 18:45 → 19:30</div>
             </div>
           </div>
         </div>
@@ -1587,13 +1600,13 @@ footer{
         </div>
       </a>
 
-      <a class="work-card" href="https://venus-elliniko-athens-riviera.avlarealestate.com/" target="_blank" rel="noopener">
-        <div class="work-img"><img src="./img/op-venus.jpg" alt="VENUS — Atina seçili projeler"></div>
+      <a class="work-card" href="https://gv.selection.avlarealestate.com/" target="_blank" rel="noopener">
+        <div class="work-img"><img src="./img/op-hera.jpg" alt="The Hera Athens — Atina merkez, Golden Visa projesi"></div>
         <div class="work-body">
           <span class="chip">Yatırım Sınıfı</span>
-          <h3 class="work-title">Venus <em>Elliniko</em></h3>
-          <p class="work-sub">Avla portföyünden yüksek kira getirili Atina seçimi.</p>
-          <div class="work-loc">Elliniko · Athens Riviera</div>
+          <h3 class="work-title">The Hera <em>Athens</em></h3>
+          <p class="work-sub">Avla portföyünden Atina merkezde, Golden Visa onaylı seçim.</p>
+          <div class="work-loc">Atina Merkez · Athens</div>
         </div>
       </a>
     </div>
@@ -1852,7 +1865,7 @@ footer{
           <li><a href="https://yunanistan-golden-visa.avlarealestate.com/" target="_blank" rel="noopener">Golden Visa Programı</a></li>
           <li><a href="https://gv.selection.avlarealestate.com/" target="_blank" rel="noopener">Golden Visa Selection</a></li>
           <li><a href="https://south.moschato.avlarealestate.com/?v=2345" target="_blank" rel="noopener">South · Moschato</a></li>
-          <li><a href="https://venus-elliniko-athens-riviera.avlarealestate.com/" target="_blank" rel="noopener">Venus · Athens</a></li>
+          <li><a href="https://gv.selection.avlarealestate.com/" target="_blank" rel="noopener">The Hera · Athens</a></li>
           <li><a href="https://www.avlarealestate.com/so/7ePvASSBf?languageTag=en" target="_blank" rel="noopener">Avla Kolaylaştırılmış Sunum</a></li>
         </ul>
       </div>
@@ -2229,7 +2242,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof fbq !== 'undefined') {
           fbq('track', 'Lead', {
             content_name: 'Sami Davet Modal',
-            content_category: 'Golden Visa - 7 Haziran Etkinlik',
+            content_category: 'Golden Visa - 5 Temmuz Etkinlik',
             value: 1.00,
             currency: 'TRY'
           });
