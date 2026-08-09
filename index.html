@@ -1791,6 +1791,11 @@ footer{
       </label>
 
       <label class="dm-field">
+        <span>Yaşadığınız Şehir</span>
+        <input type="text" name="city" autocomplete="address-level2" placeholder="Örn. İstanbul">
+      </label>
+
+      <label class="dm-field">
         <span>Yatırım Bütçeniz</span>
         <select name="investment_budget" required>
           <option value="" disabled selected>Lütfen seçiniz</option>
@@ -2229,6 +2234,7 @@ document.addEventListener('DOMContentLoaded', () => {
           { objectTypeId: '0-1', name: 'lastname',  value: data.lastname  || '' },
           { objectTypeId: '0-1', name: 'email',     value: data.email     || '' },
           { objectTypeId: '0-1', name: 'phone',     value: data.phone     || '' },
+          { objectTypeId: '0-1', name: 'city',      value: data.city      || '' },
           { objectTypeId: '0-1', name: 'gv_yatrm_butcesi_web',     value: data.investment_budget   || '' },
           { objectTypeId: '0-1', name: 'gv_yatrm_zamanlamas_web',  value: data.investment_timeline || '' },
           { objectTypeId: '0-1', name: 'gv_kvkk_onay_web',         value: data.consent ? 'true' : 'false' },
